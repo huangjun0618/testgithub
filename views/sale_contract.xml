@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <record id="sale_contract_form_view" model="ir.ui.view">
+        <field name="name">sale contract form</field>
+        <field name="model">sale.contract</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="sale_contract_review" string="提交审核"
+                            groups="goose.group_goose_user"
+                            states="draft" type="object"
+                            class="oe_highlight"/>
+                    <button name="%(action_wizard_sale_contract)d" string="审核"
+                            groups="goose.group_goose_manager"
+                            states="review" type="action" class="oe_highlight"/>
+                    <button name="sale_contract_cancel" string="取消" groups="goose.group_goose_user"
+                            states="draft,review" type="object"
+                            class="oe_highlight"/>
+                    <button name="sale_contract_draft" string="重置为草稿"
+                            groups="goose.group_goose_user"
+                            states="cancel,review" type="object"
+                            class="oe_highlight"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,review,done"
+                           statusbar_colors='{"review":"red","cancel":"blue"}'/>
+                </header>
+                <group colspan="2" string="购销合同">
+                    <group>
+                        <field name="company_id" class="oe_inline" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="partner_id" class="oe_inline" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="danbao" class="oe_inline" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    </group>
+                    <group>
+                        <field name="name" class="oe_inline" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="contract_date" class="oe_inline" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="yewu" class="oe_inline" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                    </group>
+                </group>
+                <div>
+                    <div>
+                        一、产品名称、型号、厂家、数量、金额、供货时间及数量:
+                    </div>
+                    <field name="sale_contract_line" nolabel="1" mode="tree,kanban">
+                        <tree editable="bottom">
+                            <field name="product_id" options="{'no_create':True}"/>
+                            <field name="standard" options="{'no_create':True}"/>
+                            <field name="product_uom" options="{'no_create':True}"/>
+                            <field name="product_uom_qty"/>
+                            <field name="price_unit"/>
+                            <field name="price_total"/>
+                            <field name="details"/>
+                        </tree>
+                    </field>
+                    <div class="oe_sale_contract">
+                        合计人民币金额（大写）：
+                        <field name="big_amount_total"/>
+                        <field name="amount_total" class="oe_sale_contract oe_right"
+                               widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                    </div>
+                    <div>
+                        二、质量要求技术标准:按
+                        <field name="standard_value"/>
+                        标准生产。
+                    </div>
+                    <div>
+                        三、交（提）货地点、方式：
+                        <field name="rule3"/>
+                    </div>
+                    <div>
+                        四、运输方式及到达站港和费用负担：
+                        <field name="rule4"/>
+                    </div>
+                    <div>
+                        五、包装标准、包装物的供应与回收：
+                        <field name="rule5"/>
+                    </div>
+                    <div>
+                        六、质量验收标准及方法：
+                        <field name="rule6"/>
+                    </div>
+                    <div>
+                        七、质量提出异议期限：
+                        <field name="rule7"/>
+                    </div>
+                    <div>
+                        八、结算方式及期限：
+                        <field name="rule8"/>
+                    </div>
+                    <div>
+                        九、违约责任：
+                        <field name="rule9"/>
+                    </div>
+                    <div>
+                        十、解决合同纠纷方法：
+                        <field name="rule10"/>
+                    </div>
+                    <div>
+                        十一、其他约定事项：
+                        <field name="rule11"/>
+                    </div>
+                    <div>
+                        <field name="rule12" placeholder="如需更多条款，请在此添加"/>
+                    </div>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_contract_standard_form_view" model="ir.ui.view">
+        <field name="name">sale contract standard form</field>
+        <field name="model">sale.contract.standard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group string="标准">
+                        <field name="name" class="oe_inline"/>
+                        <field name="standard" class="oe_inline"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_contract_standard_tree_view" model="ir.ui.view">
+        <field name="name">sale contract standard tree view</field>
+        <field name="model">sale.contract.standard</field>
+        <field name="arch" type="xml">
+            <tree string="Sale Contract Standard">
+                <field name="name"/>
+                <field name="standard" class="oe_inline"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sale_contract_danbao_form_view" model="ir.ui.view">
+        <field name="name">sale contract danbao form</field>
+        <field name="model">sale.contract.danbao</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="name" class="oe_inline"/>
+                        <field name="address" class="oe_inline"/>
+                        <field name="identify" class="oe_inline"/>
+                        <field name="phone" class="oe_inline"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_contract_danbao_tree_view" model="ir.ui.view">
+        <field name="name">sale contract danbao tree view</field>
+        <field name="model">sale.contract.danbao</field>
+        <field name="arch" type="xml">
+            <tree string="Sale Contract Danbao">
+                <field name="name" class="oe_inline"/>
+                <field name="address" class="oe_inline"/>
+                <field name="identify" class="oe_inline"/>
+                <field name="phone" class="oe_inline"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sale_contract_tree_view" model="ir.ui.view">
+        <field name="name">sale contract tree view</field>
+        <field name="model">sale.contract</field>
+        <field name="arch" type="xml">
+            <tree string="Sale Contract Information"
+                  colors="grey:state in ('cancle','bedending');blue:state in ('review','draft');red:state =='done'">
+                <field name="name"/>
+                <field name="partner_id" string="客户"/>
+                <field name="contract_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sale_contract_action" model="ir.actions.act_window">
+        <field name="name">销售合同</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.contract</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="sale_contract_standard_action" model="ir.actions.act_window">
+        <field name="name">标准</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.contract.standard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="sale_contract_danbao_action" model="ir.actions.act_window">
+        <field name="name">担保</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.contract.danbao</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="sale_contract_menu" name='销售合同' parent="goose_sale_menu"
+              action="sale_contract_action" sequence="1"/>
+    <menuitem id="sale_contract_standard_menu" name='技术标准' parent="goose_sale_menu"
+              action="sale_contract_standard_action" groups="" sequence="4"/>
+    <menuitem id="sale_contract_danbao_menu" name='担保人信息' parent="goose_sale_menu"
+              action="sale_contract_danbao_action" groups="" sequence="4"/>
+</odoo>

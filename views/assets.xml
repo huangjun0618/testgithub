@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+   <template id="my" name="Open Mobile Assets" inherit_id="web.assets_backend">
+       <xpath expr="." >
+           <link rel="stylesheet" href="/goose/static/src/less/style.less"/>
+            <script type="text/javascript" src="/goose/static/js/report_extend.js"/>
+       </xpath>
+   </template>
+    <template id="goose_extend" inherit_id="report.assets_editor" name="goose_extend">
+    <t t-call="web.less_helpers"/>
+        <xpath expr="." >
+            <link href="/goose/static/src/less/goose.less" rel="stylesheet" type="text/less"/>
+
+        </xpath>
+</template>
+
+
+</odoo>

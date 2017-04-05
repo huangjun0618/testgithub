@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="goose_report_view" model="ir.ui.view">
+        <field name="name">My Report</field>
+        <field name="model">goose.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="窗口" version="7.0">
+                <group>
+                    <field name="year" class="oe_inline"/>
+                    <field name="date_from" class="oe_inline"/>
+                    <field name="date_to" class="oe_inline"/>
+                    <field name="sorted_by" widget="radio" class="oe_inline"/>
+                    <field name="yewu" class="oe_inline"/>
+                </group>
+                <footer>
+                    <button name="but_print" string="预览" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_goose_report_menu" model="ir.actions.act_window">
+        <field name="name">报表</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.report.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="goose_report_view"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="menu_my_report"
+            name="销售报表（管理）"
+            parent="goose.goose_sale_menu"
+            action="action_goose_report_menu"
+            groups="group_goose_kuaiji"
+    />
+
+
+    <record id="goose_report_view_yewu" model="ir.ui.view">
+        <field name="name">My Report yewu</field>
+        <field name="model">goose.report.wizard.yewu</field>
+        <field name="arch" type="xml">
+            <form string="窗口" version="7.0">
+                <group>
+                    <field name="year" class="oe_inline"/>
+                    <field name="date_from" class="oe_inline"/>
+                    <field name="date_to" class="oe_inline"/>
+                    <field name="sorted_by" widget="radio" class="oe_inline"/>
+                    <field name="yewu" class="oe_inline"/>
+                </group>
+                <footer>
+                    <button name="but_print" string="预览" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_goose_report_menu_yewu" model="ir.actions.act_window">
+        <field name="name">报表（员工）</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.report.wizard.yewu</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="goose_report_view_yewu"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="menu_my_report_yewu"
+            name="销售报表（业务员）"
+            parent="goose.goose_sale_menu"
+            action="action_goose_report_menu_yewu"
+            groups="group_goose_user,group_goose_kuaiji"
+    />
+
+    <record id="goose_report_view_wj" model="ir.ui.view">
+        <field name="name">wujin Report</field>
+        <field name="model">goose.report.wj.wizard</field>
+        <field name="arch" type="xml">
+            <form string="窗口" version="7.0">
+                <group>
+                    <field name="year" class="oe_inline"/>
+                    <field name="date_from" class="oe_inline"/>
+                    <field name="date_to" class="oe_inline"/>
+                    <field name="result_selection" class="oe_inline"/>
+                </group>
+                <footer>
+                    <button name="but_print" string="预览" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_goose_report_menu_wj" model="ir.actions.act_window">
+        <field name="name">WJ Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.report.wj.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="goose_report_view_wj"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="menu_my_report_wj"
+            name="五金仓报表"
+            parent="goose.goose_wujin_menu"
+            action="action_goose_report_menu_wj"
+            groups="group_goose_wjck,group_goose_kuaiji"
+    />
+
+    <record id="goose_report_view_caigou" model="ir.ui.view">
+        <field name="name">caigou Report</field>
+        <field name="model">goose.caigou.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="窗口" version="7.0">
+                <footer>
+                    <button name="but_print" string="预览" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="report_action_goose_order_pay" model="ir.actions.act_window">
+        <field name="name">报表</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.caigou.report.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="goose_report_view_caigou"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="menu_my_report_caigou"
+            name="采购报表（管理）"
+            parent="goose.goose_caigo_menu"
+            action="goose.report_action_goose_order_pay"
+    />
+
+    <record id="goose_report_view_caigoujl" model="ir.ui.view">
+        <field name="name">caigoujl report</field>
+        <field name="model">goose.caigoujl.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="窗口" version="7.0">
+                <footer>
+                    <button name="but_print" string="预览" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="report_action_goose_order_pay_jl" model="ir.actions.act_window">
+        <field name="name">报表</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.caigoujl.report.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="goose_report_view_caigoujl"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+            id="menu_my_report_caigoujl"
+            name="采购报表（经办员）"
+            parent="goose.goose_caigo_menu"
+            action="goose.report_action_goose_order_pay_jl"
+    />
+
+    <record id="goose_report_view_jx" model="ir.ui.view">
+        <field name="name">jx report</field>
+        <field name="model">goose.jx.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="窗口" version="7.0">
+                <footer>
+                    <button name="but_print" string="预览" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="report_action_goose_jx" model="ir.actions.act_window">
+        <field name="name">报表</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.jx.report.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="goose_report_view_jx"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="goose_jx" name="绩效" parent="goose_sale_menu" action="report_action_goose_jx"/>
+
+
+</odoo>

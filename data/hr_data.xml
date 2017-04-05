@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--hr data-->
+    <data noupdate="0">
+        <record id="dep_huayan" model="hr.department">
+            <field name="name">中心化验室</field>
+        </record>
+        <record id="dep_sales" model="hr.department">
+            <field name="name">销售部</field>
+        </record>
+        <record id="dep_produce" model="hr.department">
+            <field name="name">生产部</field>
+        </record>
+        <record id="dep_zongwu" model="hr.department">
+            <field name="name">总务室</field>
+        </record>
+        <record id="dep_caiwu" model="hr.department">
+            <field name="name">财务部</field>
+        </record>
+        <record id="dep_qiguan" model="hr.department">
+            <field name="name">企管部</field>
+        </record>
+        <record id="dep_bangong" model="hr.department">
+            <field name="name">办公室</field>
+        </record>
+        <record id="dep_shebei" model="hr.department">
+            <field name="name">设备部</field>
+        </record>
+        <record id="dep_zongjingli" model="hr.department">
+            <field name="name">总经理室</field>
+        </record>
+        <record id="dep_other" model="hr.department">
+            <field name="name">其他</field>
+        </record>
+    </data>
+
+    <!--物料类别-->
+    <data>
+        <record id="wuliao_bg" model="goose.category.wuliao">
+            <field name="name">办公用品</field>
+        </record>
+        <record id="wuliao_lb" model="goose.category.wuliao">
+            <field name="name">劳保用品</field>
+        </record>
+        <record id="wuliao_fl" model="goose.category.wuliao">
+            <field name="name">辅料</field>
+        </record>
+        <record id="wuliao_lp" model="goose.category.wuliao">
+            <field name="name">另配件</field>
+        </record>
+        <record id="wuliao_yc" model="goose.category.wuliao">
+            <field name="name">原材料</field>
+        </record>
+        <record id="wuliao_rl" model="goose.category.wuliao">
+            <field name="name">燃料</field>
+        </record>
+    </data>
+
+    <!--产品类别-->
+    <data>
+        <record id="category_er" model="goose.category">
+            <field name="name">鹅绒</field>
+        </record>
+        <record id="category_yr" model="goose.category">
+            <field name="name">鸭绒</field>
+        </record>
+        <record id="category_dqr" model="goose.category">
+            <field name="name">大球鸭绒</field>
+        </record>
+
+        <record id="category_hhr" model="goose.category">
+            <field name="name">混鸭绒（含棉）</field>
+        </record>
+        <record id="category_mp" model="goose.category">
+            <field name="name">毛片</field>
+        </record>
+        <record id="category_zyr" model="goose.category">
+            <field name="name">中球鸭绒</field>
+        </record>
+    </data>
+
+    <!--产品名称-->
+    <data>
+        <record id="product_er_90" model="goose.product">
+            <field name="name">90%白鹅绒</field>
+            <field name="category">1</field>
+        </record>
+        <record id="product_er_80" model="goose.product">
+            <field name="name">80%白鹅绒</field>
+            <field name="category">1</field>
+        </record>
+        <record id="product_er_70" model="goose.product">
+            <field name="name">70%白鹅绒</field>
+            <field name="category">1</field>
+        </record>
+        <record id="product_er_60" model="goose.product">
+            <field name="name">60%白鹅绒</field>
+            <field name="category">1</field>
+        </record>
+        <record id="product_er_50" model="goose.product">
+            <field name="name">50%白鹅绒</field>
+            <field name="category">1</field>
+        </record>
+
+        <record id="product_er_90cb" model="goose.product">
+            <field name="name">90%纯白鹅绒</field>
+            <field name="category">1</field>
+        </record>
+        <record id="product_er_80cb" model="goose.product">
+            <field name="name">80%纯白鹅绒</field>
+            <field name="category">1</field>
+        </record>
+        <record id="product_er_70cb" model="goose.product">
+            <field name="name">70%纯白鹅绒</field>
+            <field name="category">1</field>
+        </record>
+        <record id="product_er_60cb" model="goose.product">
+            <field name="name">60%纯白鹅绒</field>
+            <field name="category">1</field>
+        </record>
+        <record id="product_er_50cb" model="goose.product">
+            <field name="name">50%纯白鹅绒</field>
+            <field name="category">1</field>
+        </record>
+
+        <record id="product_er_90h" model="goose.product">
+            <field name="name">90%灰鹅绒</field>
+            <field name="category">1</field>
+        </record>
+        <record id="product_er_80h" model="goose.product">
+            <field name="name">80%灰鹅绒</field>
+            <field name="category">1</field>
+        </record>
+        <record id="product_er_70h" model="goose.product">
+            <field name="name">70%灰鹅绒</field>
+            <field name="category">1</field>
+        </record>
+        <record id="product_er_60h" model="goose.product">
+            <field name="name">60%灰鹅绒</field>
+            <field name="category">1</field>
+        </record>
+        <record id="product_er_50h" model="goose.product">
+            <field name="name">50%灰鹅绒</field>
+            <field name="category">1</field>
+        </record>
+
+        <record id="product_yr_90" model="goose.product">
+            <field name="name">90%白鸭绒</field>
+            <field name="category">2</field>
+        </record>
+        <record id="product_yr_80" model="goose.product">
+            <field name="name">80%白鸭绒</field>
+            <field name="category">2</field>
+        </record>
+        <record id="product_yr_70" model="goose.product">
+            <field name="name">70%白鸭绒</field>
+            <field name="category">2</field>
+        </record>
+        <record id="product_yr_60" model="goose.product">
+            <field name="name">60%白鸭绒</field>
+            <field name="category">2</field>
+        </record>
+        <record id="product_yr_50" model="goose.product">
+            <field name="name">50%白鸭绒</field>
+            <field name="category">2</field>
+        </record>
+
+        <record id="product_yr_90cb" model="goose.product">
+            <field name="name">90%纯白鸭绒</field>
+            <field name="category">2</field>
+        </record>
+        <record id="product_yr_80cb" model="goose.product">
+            <field name="name">80%纯白鸭绒</field>
+            <field name="category">2</field>
+        </record>
+        <record id="product_yr_70cb" model="goose.product">
+            <field name="name">70%纯白鸭绒</field>
+            <field name="category">2</field>
+        </record>
+        <record id="product_yr_60cb" model="goose.product">
+            <field name="name">60%纯白鸭绒</field>
+            <field name="category">2</field>
+        </record>
+        <record id="product_yr_50cb" model="goose.product">
+            <field name="name">50%纯白鸭绒</field>
+            <field name="category">2</field>
+        </record>
+
+        <record id="product_yr_90h" model="goose.product">
+            <field name="name">90%灰鸭绒</field>
+            <field name="category">2</field>
+        </record>
+        <record id="product_yr_80h" model="goose.product">
+            <field name="name">80%灰鸭绒</field>
+            <field name="category">2</field>
+        </record>
+        <record id="product_yr_70h" model="goose.product">
+            <field name="name">70%灰鸭绒</field>
+            <field name="category">2</field>
+        </record>
+        <record id="product_yr_60h" model="goose.product">
+            <field name="name">60%灰鸭绒</field>
+            <field name="category">2</field>
+        </record>
+        <record id="product_yr_50h" model="goose.product">
+            <field name="name">50%灰鸭绒</field>
+            <field name="category">2</field>
+        </record>
+
+        <record id="product_dqbyr_90" model="goose.product">
+            <field name="name">90%大球白鸭绒</field>
+            <field name="category">3</field>
+        </record>
+        <record id="product_dqcyr_90" model="goose.product">
+            <field name="name">90%大球纯白鸭绒</field>
+            <field name="category">3</field>
+        </record>
+        <record id="product_dqhyr_90" model="goose.product">
+            <field name="name">90%大球灰鸭绒</field>
+            <field name="category">3</field>
+        </record>
+
+        <record id="product_dqbyr_80" model="goose.product">
+            <field name="name">80%中球白鸭绒</field>
+            <field name="category">6</field>
+        </record>
+        <record id="product_dqcyr_80" model="goose.product">
+            <field name="name">80%中球纯白鸭绒</field>
+            <field name="category">6</field>
+        </record>
+        <record id="product_dqhyr_80" model="goose.product">
+            <field name="name">80%中球灰鸭绒</field>
+            <field name="category">6</field>
+        </record>
+
+        <record id="product_hyhr_93" model="goose.product">
+            <field name="name">90%灰鸭混绒含棉30%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_94" model="goose.product">
+            <field name="name">90%灰鸭混绒含棉40%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_95" model="goose.product">
+            <field name="name">90%灰鸭混绒含棉50%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_96" model="goose.product">
+            <field name="name">90%灰鸭混绒含棉60%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_97" model="goose.product">
+            <field name="name">90%灰鸭混绒含棉70%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_98" model="goose.product">
+            <field name="name">90%灰鸭混绒含棉80%</field>
+            <field name="category">4</field>
+        </record>
+
+        <record id="product_hyhr_83" model="goose.product">
+            <field name="name">80%灰鸭混绒含棉30%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_84" model="goose.product">
+            <field name="name">80%灰鸭混绒含棉40%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_85" model="goose.product">
+            <field name="name">80%灰鸭混绒含棉50%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_86" model="goose.product">
+            <field name="name">80%灰鸭混绒含棉60%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_87" model="goose.product">
+            <field name="name">80%灰鸭混绒含棉70%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_88" model="goose.product">
+            <field name="name">80%灰鸭混绒含棉80%</field>
+            <field name="category">4</field>
+        </record>
+
+        <record id="product_hyhr_73" model="goose.product">
+            <field name="name">70%灰鸭混绒含棉30%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_74" model="goose.product">
+            <field name="name">70%灰鸭混绒含棉40%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_75" model="goose.product">
+            <field name="name">70%灰鸭混绒鸭含棉50%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_76" model="goose.product">
+            <field name="name">70%灰鸭混绒含棉60%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_77" model="goose.product">
+            <field name="name">70%灰鸭混绒含棉70%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_78" model="goose.product">
+            <field name="name">70%灰鸭混绒含棉80%</field>
+            <field name="category">4</field>
+        </record>
+
+        <record id="product_hyhr_63" model="goose.product">
+            <field name="name">60%灰鸭混绒含棉30%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_64" model="goose.product">
+            <field name="name">60%灰鸭混绒含棉40%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_65" model="goose.product">
+            <field name="name">60%灰鸭混绒含棉50%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_66" model="goose.product">
+            <field name="name">60%灰鸭混绒含棉60%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_67" model="goose.product">
+            <field name="name">60%灰鸭混绒含棉70%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_68" model="goose.product">
+            <field name="name">60%灰鸭混绒含棉80%</field>
+            <field name="category">4</field>
+        </record>
+
+        <record id="product_hyhr_53" model="goose.product">
+            <field name="name">50%灰鸭混绒含棉30%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_54" model="goose.product">
+            <field name="name">50%灰鸭混绒含棉40%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_55" model="goose.product">
+            <field name="name">50%灰鸭混绒含棉50%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_56" model="goose.product">
+            <field name="name">50%灰鸭混绒含棉60%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_57" model="goose.product">
+            <field name="name">50%灰鸭混绒含棉70%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_58" model="goose.product">
+            <field name="name">50%灰鸭混绒含棉80%</field>
+            <field name="category">4</field>
+        </record>
+
+        <record id="product_hyhr_43" model="goose.product">
+            <field name="name">40%灰鸭混绒含棉30%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_44" model="goose.product">
+            <field name="name">40%灰鸭混绒含棉40%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_45" model="goose.product">
+            <field name="name">40%灰鸭混绒含棉50%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_46" model="goose.product">
+            <field name="name">40%灰鸭混绒含棉60%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_47" model="goose.product">
+            <field name="name">40%灰鸭混绒含棉70%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_48" model="goose.product">
+            <field name="name">40%灰鸭混绒含棉80%</field>
+            <field name="category">4</field>
+        </record>
+
+        <record id="product_hyhr_33" model="goose.product">
+            <field name="name">30%灰鸭混绒含棉30%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_34" model="goose.product">
+            <field name="name">30%灰鸭混绒含棉40%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_35" model="goose.product">
+            <field name="name">30%灰鸭混绒含棉50%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_36" model="goose.product">
+            <field name="name">30%灰鸭混绒含棉60%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_37" model="goose.product">
+            <field name="name">30%灰鸭混绒含棉70%</field>
+            <field name="category">4</field>
+        </record>
+        <record id="product_hyhr_38" model="goose.product">
+            <field name="name">30%灰鸭混绒含棉80%</field>
+            <field name="category">4</field>
+        </record>
+    </data>
+
+    <!--毛片-->
+    <data>
+        <record id="product_bmp_56" model="goose.product">
+            <field name="name">5-6cm白鸭毛片</field>
+            <field name="category">5</field>
+        </record>
+        <record id="product_bmp_24" model="goose.product">
+            <field name="name">2-4cm白鸭毛片</field>
+            <field name="category">5</field>
+        </record>
+
+        <record id="product_mp_56" model="goose.product">
+            <field name="name">5-6cm灰鸭毛片</field>
+            <field name="category">5</field>
+        </record>
+        <record id="product_mp_24" model="goose.product">
+            <field name="name">2-4cm灰鸭毛片</field>
+            <field name="category">5</field>
+        </record>
+    </data>
+</odoo>
+

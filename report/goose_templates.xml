@@ -1,0 +1,2128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_gooseorder">
+        <t t-call="report.html_container">
+            <t t-lang="zh_CN"/>
+            <t t-if="data['form']['sorted_by']=='month'">
+                <div class="page" style="font-size:15px;line-height:30px">
+                    <div class="text-center">
+                        <h2>
+                            公司应收账款统计表（按月份）
+                        </h2>
+                    </div>
+                    <div class="text-center">
+                        统计年份：
+                        <t t-esc="data['form']['year'][0:4]"/>
+                    </div>
+                    <table class="table table-condensed table-bordered">
+                        <tr>
+                            <th rowspan="3">公司</th>
+                            <th rowspan="3">月份</th>
+                            <th colspan="4">
+                                上月末余额
+                            </th>
+                            <th colspan="2">
+                                本月发货
+                            </th>
+                            <th colspan="7">
+                                本月收款
+                            </th>
+                            <th colspan="4">
+                                本月余额
+                            </th>
+                            <th colspan="3">
+                                开票情况
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="3">
+                                其中
+                            </th>
+                            <th rowspan="2">
+                                合计
+                            </th>
+                            <th rowspan="2">
+                                数量
+                            </th>
+                            <th rowspan="2">
+                                金额
+                            </th>
+                            <th colspan="4">
+                                收款方式
+                            </th>
+                            <th colspan="3">
+                                收款类型
+                            </th>
+                            <th colspan="3">
+                                其中
+                            </th>
+                            <th rowspan="2">
+                                合计
+                            </th>
+                            <th rowspan="2">
+                                开票
+                            </th>
+                            <th rowspan="2">
+                                不开票
+                            </th>
+                            <th rowspan="2">
+                                合计
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>账面</th>
+                            <th>不开票</th>
+                            <th>未开票</th>
+                            <th>银行</th>
+                            <th>现金</th>
+                            <th>调整款项</th>
+                            <th>合计</th>
+                            <th>开票</th>
+                            <th>不开票</th>
+                            <th>合计</th>
+                            <th>账面</th>
+                            <th>未开票</th>
+                            <th>不开票</th>
+                        </tr>
+                        <t t-foreach="date" t-as="d">
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        野鹅
+                                    </div>
+                                </td>
+                                <td>
+                                    <t t-esc="month[d]"/>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['szhangmian'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['syuerbukaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['sweikaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计3-->
+                                    <div class="text-right">
+                                        <t t-esc="res['sheji3'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['qty'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['amount'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['yinhang'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['xianjin'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['tiaozheng'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['heji1'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['shoukuankaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['shoukuanbukaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计2-->
+                                    <div class="text-right">
+                                        <t t-esc="res['heji2'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['zhangmian'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['yuerbukaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['weikaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计3-->
+                                    <div class="text-right">
+                                        <t t-esc="res['heji3'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['kaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['bukaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计4-->
+                                    <div class="text-right">
+                                        <t t-esc="res['heji4'][d]"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        天鹅
+                                    </div>
+                                </td>
+                                <td>
+                                    <t t-esc="month[d]"/>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['szhangmian'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['syuerbukaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['sweikaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计3-->
+                                    <div class="text-right">
+                                        <t t-esc="res2['sheji3'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['qty'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['amount'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['yinhang'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['xianjin'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['tiaozheng'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['heji1'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['shoukuankaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['shoukuanbukaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计2-->
+                                    <div class="text-right">
+                                        <t t-esc="res2['heji2'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['zhangmian'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['yuerbukaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['weikaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计3-->
+                                    <div class="text-right">
+                                        <t t-esc="res2['heji3'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['kaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['bukaipiao'][d]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计4-->
+                                    <div class="text-right">
+                                        <t t-esc="res2['heji4'][d]"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </t>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="text-center">
+                                    野鹅（合计）
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['qty']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['amount']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['yinhang']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['xianjin']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['tiaozheng']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['heji1']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['shoukuankaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['shoukuanbukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计2-->
+                                <div class="text-right">
+                                    <t t-esc="s['heji2']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['zhangmian']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['yuerbukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['weikaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计3-->
+                                <div class="text-right">
+                                    <t t-esc="s['heji3']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['kaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['bukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计4-->
+                                <div class="text-right">
+                                    <t t-esc="s['heji4']"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="text-center">
+                                    天鹅（合计）
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['qty']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['amount']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['yinhang']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['xianjin']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['tiaozheng']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['heji1']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['shoukuankaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['shoukuanbukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计2-->
+                                <div class="text-right">
+                                    <t t-esc="s2['heji2']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['zhangmian']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['yuerbukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['weikaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计3-->
+                                <div class="text-right">
+                                    <t t-esc="s2['heji3']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['kaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['bukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计4-->
+                                <div class="text-right">
+                                    <t t-esc="s2['heji4']"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+
+            <t t-if="data['form']['sorted_by']=='people'">
+                <div class="page" style="font-size:15px;line-height:30px">
+                    <div class="text-center">
+                        <h2>
+                            公司应收账款统计表（按业务员）
+                        </h2>
+                    </div>
+                    <div class="text-center">
+                        业务员：
+                        <t t-esc="data['form']['yewu'][1]"/>
+                    </div>
+                    <table class="table table-condensed table-bordered">
+                        <tr>
+                            <th rowspan="3">公司</th>
+                            <th rowspan="3">客户</th>
+                            <th colspan="4">
+                                上月末余额
+                            </th>
+                            <th colspan="2">
+                                本月发货
+                            </th>
+                            <th colspan="7">
+                                本月收款
+                            </th>
+                            <th colspan="4">
+                                本月余额
+                            </th>
+                            <th colspan="3">
+                                开票情况
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="3">
+                                其中
+                            </th>
+                            <th rowspan="2">
+                                合计
+                            </th>
+                            <th rowspan="2">
+                                数量
+                            </th>
+                            <th rowspan="2">
+                                金额
+                            </th>
+                            <th colspan="4">
+                                收款方式
+                            </th>
+                            <th colspan="3">
+                                收款类型
+                            </th>
+                            <th colspan="3">
+                                其中
+                            </th>
+                            <th rowspan="2">
+                                合计
+                            </th>
+                            <th rowspan="2">
+                                开票
+                            </th>
+                            <th rowspan="2">
+                                不开票
+                            </th>
+                            <th rowspan="2">
+                                合计
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>账面</th>
+                            <th>不开票</th>
+                            <th>未开票</th>
+                            <th>银行</th>
+                            <th>现金</th>
+                            <th>调整款项</th>
+                            <th>合计</th>
+                            <th>开票</th>
+                            <th>不开票</th>
+                            <th>合计</th>
+                            <th>账面</th>
+                            <th>未开票</th>
+                            <th>不开票</th>
+                        </tr>
+                        <t t-foreach="client" t-as="c">
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        野鹅
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="c"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['szhangmian'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['syuerbukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['sweikaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计3-->
+                                    <div class="text-right">
+                                        <t t-esc="res['sheji3'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['qty'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['amount'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['yinhang'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['xianjin'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['tiaozheng'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['heji1'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['shoukuankaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['shoukuanbukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计2-->
+                                    <div class="text-right">
+                                        <t t-esc="res['heji2'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['zhangmian'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['yuerbukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['weikaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计3-->
+                                    <div class="text-right">
+                                        <t t-esc="res['heji3'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['kaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['bukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计4-->
+                                    <div class="text-right">
+                                        <t t-esc="res['heji4'][c]"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        天鹅
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="c"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['szhangmian'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['syuerbukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['sweikaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计3-->
+                                    <div class="text-right">
+                                        <t t-esc="res2['sheji3'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['qty'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['amount'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['yinhang'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['xianjin'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['tiaozheng'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['heji1'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['shoukuankaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['shoukuanbukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计2-->
+                                    <div class="text-right">
+                                        <t t-esc="res2['heji2'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['zhangmian'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['yuerbukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['weikaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计3-->
+                                    <div class="text-right">
+                                        <t t-esc="res2['heji3'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['kaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['bukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计4-->
+                                    <div class="text-right">
+                                        <t t-esc="res2['heji4'][c]"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </t>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="text-center">
+                                    野鹅（合计）
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['qty']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['amount']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['yinhang']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['xianjin']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['tiaozheng']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['heji1']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['shoukuankaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['shoukuanbukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计2-->
+                                <div class="text-right">
+                                    <t t-esc="s['heji2']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['zhangmian']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['yuerbukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['weikaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计3-->
+                                <div class="text-right">
+                                    <t t-esc="s['heji3']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['kaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['bukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计4-->
+                                <div class="text-right">
+                                    <t t-esc="s['heji4']"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="text-center">
+                                    天鹅（合计）
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['qty']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['amount']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['yinhang']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['xianjin']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['tiaozheng']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['heji1']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['shoukuankaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['shoukuanbukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计2-->
+                                <div class="text-right">
+                                    <t t-esc="s2['heji2']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['zhangmian']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['yuerbukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['weikaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计3-->
+                                <div class="text-right">
+                                    <t t-esc="s2['heji3']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['kaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['bukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计4-->
+                                <div class="text-right">
+                                    <t t-esc="s2['heji4']"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+
+            <t t-if="data['form']['sorted_by']=='all'">
+                <div class="page" style="font-size:15px;line-height:30px">
+                    <div class="text-center">
+                        <h2>
+                            公司应收账款统计表（按业务员）
+                        </h2>
+                    </div>
+                    <div class="text-center">
+                        业务员：全部
+                    </div>
+                    <table class="table table-condensed table-bordered">
+                        <tr>
+                            <th rowspan="3">业务</th>
+                            <th rowspan="3">公司</th>
+                            <th colspan="4">
+                                上月末余额
+                            </th>
+                            <th colspan="2">
+                                本月发货
+                            </th>
+                            <th colspan="7">
+                                本月收款
+                            </th>
+                            <th colspan="4">
+                                本月余额
+                            </th>
+                            <th colspan="3">
+                                开票情况
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="3">
+                                其中
+                            </th>
+                            <th rowspan="2">
+                                合计
+                            </th>
+                            <th rowspan="2">
+                                数量
+                            </th>
+                            <th rowspan="2">
+                                金额
+                            </th>
+                            <th colspan="4">
+                                收款方式
+                            </th>
+                            <th colspan="3">
+                                收款类型
+                            </th>
+                            <th colspan="3">
+                                其中
+                            </th>
+                            <th rowspan="2">
+                                合计
+                            </th>
+                            <th rowspan="2">
+                                开票
+                            </th>
+                            <th rowspan="2">
+                                不开票
+                            </th>
+                            <th rowspan="2">
+                                合计
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>账面</th>
+                            <th>不开票</th>
+                            <th>未开票</th>
+                            <th>银行</th>
+                            <th>现金</th>
+                            <th>调整款项</th>
+                            <th>合计</th>
+                            <th>开票</th>
+                            <th>不开票</th>
+                            <th>合计</th>
+                            <th>账面</th>
+                            <th>未开票</th>
+                            <th>不开票</th>
+                        </tr>
+                        <t t-foreach="clients" t-as="c">
+                            <tr>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['name'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        野鹅
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['szhangmian'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['syuerbukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['sweikaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计3-->
+                                    <div class="text-right">
+                                        <t t-esc="res['sheji3'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['qty'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['amount'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['yinhang'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['xianjin'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['tiaozheng'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['heji1'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['shoukuankaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['shoukuanbukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计2-->
+                                    <div class="text-right">
+                                        <t t-esc="res['heji2'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['zhangmian'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['yuerbukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['weikaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计3-->
+                                    <div class="text-right">
+                                        <t t-esc="res['heji3'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['kaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res['bukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计4-->
+                                    <div class="text-right">
+                                        <t t-esc="res['heji4'][c]"/>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['name'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-center">
+                                        天鹅
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['szhangmian'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['syuerbukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['sweikaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计3-->
+                                    <div class="text-right">
+                                        <t t-esc="res2['sheji3'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['qty'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['amount'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['yinhang'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['xianjin'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['tiaozheng'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['heji1'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['shoukuankaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['shoukuanbukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计2-->
+                                    <div class="text-right">
+                                        <t t-esc="res2['heji2'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['zhangmian'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['yuerbukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['weikaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计3-->
+                                    <div class="text-right">
+                                        <t t-esc="res2['heji3'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['kaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res2['bukaipiao'][c]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <!--合计4-->
+                                    <div class="text-right">
+                                        <t t-esc="res2['heji4'][c]"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </t>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="text-center">
+                                    野鹅（合计）
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['qty']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['amount']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['yinhang']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['xianjin']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['tiaozheng']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['heji1']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['shoukuankaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['shoukuanbukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计2-->
+                                <div class="text-right">
+                                    <t t-esc="s['heji2']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['zhangmian']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['yuerbukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['weikaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计3-->
+                                <div class="text-right">
+                                    <t t-esc="s['heji3']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['kaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s['bukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计4-->
+                                <div class="text-right">
+                                    <t t-esc="s['heji4']"/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <div class="text-center">
+                                    天鹅（合计）
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['qty']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['amount']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['yinhang']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['xianjin']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['tiaozheng']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['heji1']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['shoukuankaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['shoukuanbukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计2-->
+                                <div class="text-right">
+                                    <t t-esc="s2['heji2']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['zhangmian']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['yuerbukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['weikaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计3-->
+                                <div class="text-right">
+                                    <t t-esc="s2['heji3']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['kaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="s2['bukaipiao']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <!--合计4-->
+                                <div class="text-right">
+                                    <t t-esc="s2['heji4']"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_gooseproductwuliao">
+        <t t-call="report.html_container">
+            <div class="page" style="font-size:15px;line-height:30px">
+                <t t-lang="zh_CN"/>
+                <t t-if="data['form']['result_selection']=='kucun'">
+                    <div class="text-center">
+                        <h2>
+                            嘉善野鹅羽绒制品有限公司
+                        </h2>
+                    </div>
+                    <div class="text-center">
+                        物料库存汇总报表（按月份）
+                    </div>
+                    <div class="text-center">
+                        <t t-esc="data['month_begin']"/>到
+                        <t t-esc="data['month_end']"/>
+                    </div>
+                    <table class="table table-condensed table-bordered">
+                        <tr>
+                            <!--<th>-->
+                            <!--物料类别-->
+                            <!--</th>-->
+                            <th>
+                                类别名称
+                            </th>
+                            <th>
+                                期初金额
+                            </th>
+                            <th>
+                                本期增加
+                            </th>
+                            <th>
+                                本期减少
+                            </th>
+                            <th>
+                                期末金额
+                            </th>
+                            <th>
+                                备注
+                            </th>
+                        </tr>
+                        <t t-foreach="res" t-as="r">
+                            <tr>
+                                <!--<td>-->
+                                <!--物料类别-->
+                                <!--</td>-->
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="r['name']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <div class="text-right">
+                                            <t t-foreach="res_start" t-as="start">
+                                                <t t-if="start==r['name']">
+                                                    <t t-esc="start_value"/>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-foreach="res_ru" t-as="ru">
+                                            <t t-if="ru==r['name']">
+                                                <t t-esc="ru_value"/>
+                                            </t>
+                                        </t>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <div class="text-right">
+                                            <t t-foreach="res_chu" t-as="chu">
+                                                <t t-if="chu==r['name']">
+                                                    <t t-esc="chu_value"/>
+                                                </t>
+                                            </t>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="r['amount']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <!--备注-->
+                                    </div>
+                                </td>
+                            </tr>
+                        </t>
+                        <td>
+                            <div class="text-right">
+                                合计
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-right">
+                                <t t-esc="res_heji['start']"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-right">
+                                <t t-esc="res_heji['ru']"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-right">
+                                <t t-esc="res_heji['chu']"/>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-right">
+                                <t t-esc="res_heji['res']"/>
+                            </div>
+                        </td>
+                        <td></td>
+                    </table>
+
+                </t>
+                <t t-if="data['form']['result_selection']=='lingyong'">
+                    <div class="text-center">
+                        <h2>
+                            嘉善野鹅羽绒制品有限公司
+                        </h2>
+                    </div>
+                    <div class="text-center">
+                        物料领用汇总报表（按月份）
+                    </div>
+                    <div class="text-center">
+                        <t t-esc="data['month_begin']"/>到
+                        <t t-esc="data['month_end']"/>
+                    </div>
+                    <table class="table table-condensed table-bordered">
+                        <tr>
+                            <th rowspan="2">
+                                部门
+                            </th>
+                            <th colspan="2">
+                                原材料
+                            </th>
+                            <th colspan="2">
+                                燃料
+                            </th>
+                            <th rowspan="2">
+                                另配件
+                            </th>
+                            <th rowspan="2">
+                                辅料
+                            </th>
+                            <th rowspan="2">
+                                劳保用品
+                            </th>
+                            <th rowspan="2">
+                                办公用品
+                            </th>
+                            <th rowspan="2">
+                                合计金额
+                            </th>
+
+                        </tr>
+                        <tr>
+                            <th>
+                                数量
+                            </th>
+                            <th>
+                                金额
+                            </th>
+                            <th>
+                                数量
+                            </th>
+                            <th>
+                                金额
+                            </th>
+                        </tr>
+
+                        <t t-foreach="res_department" t-as="r">
+                            <tr>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="r"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res_ly['ycls'][r]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res_ly['yclj'][r]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res_ly['rls'][r]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res_ly['rlj'][r]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res_ly['lpj'][r]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res_ly['fl'][r]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res_ly['lb'][r]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res_ly['bg'][r]"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="res_ly['bg'][r]+res_ly['lb'][r]+res_ly['fl'][r]+res_ly['lpj'][r]+res_ly['rlj'][r]+res_ly['rls'][r]+res_ly['ycls'][r]+res_ly['yclj'][r]"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </t>
+
+                        <tr>
+                            <td>
+                                <div class="text-right">
+                                    合计
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="res_ly_heji['ycls']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="res_ly_heji['yclj']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="res_ly_heji['rls']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="res_ly_heji['rlj']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="res_ly_heji['lpj']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="res_ly_heji['fl']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="res_ly_heji['lb']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="res_ly_heji['bg']"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-right">
+                                    <t t-esc="res_ly_heji['bg']+res_ly_heji['lb']+res_ly_heji['fl']+res_ly_heji['lpj']+res_ly_heji['rlj']+res_ly_heji['rls']+res_ly_heji['yclj']+res_ly_heji['ycls']"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_gooseyuanliao">
+        <tr t-call="report.html_container">
+            <t t-lang="zh_CN"/>
+            <div class="page" style="font-size:15px;line-height:30px">
+                <div class="text-center">
+                    <h2>
+                        嘉善野鹅羽绒制品有限公司
+                    </h2>
+                </div>
+                <div class="text-center">
+                    入库单
+                </div>
+                <table class="table table-condensed table-bordered">
+                    <tr t-foreach="docs" t-as="d">
+                        <div class="text-right">
+                            入库时间：
+                            <t t-esc="d.ruku_date"/>
+                        </div>
+                        <tr>
+                            <th>供货单位</th>
+                            <th>
+                                <t t-esc="d.supplier_id.name"/>
+                            </th>
+                            <th>发票号码或送货号码</th>
+                            <th></th>
+                            <th>物资类别</th>
+                            <th>
+                                原料
+                            </th>
+
+                        </tr>
+                        <tr>
+                            <td>
+                                编号
+                            </td>
+                            <td>
+                                名称及规格
+                            </td>
+                            <td>单位</td>
+                            <td>数量</td>
+                            <td>单价</td>
+                            <td>金额</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <t t-esc="d.ylmc.name"/>
+                            </td>
+                            <td>公斤</td>
+                            <td>
+                                <t t-esc="d.pizhongliang"/>
+                            </td>
+                            <td>
+                                <t t-esc="d.price"/>
+                            </td>
+                            <td>
+                                <t t-esc="d.price_total"/>
+                            </td>
+                        </tr>
+                        <!--<tr>-->
+                        <!--<td> </td>-->
+                        <!--<td> </td>-->
+                        <!--<td> </td>-->
+                        <!--<td> </td>-->
+                        <!--<td> </td>-->
+                        <!--<td> </td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <!--</tr>-->
+                        <!--<tr>-->
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <!--<td></td>-->
+                        <!--</tr>-->
+                    </tr>
+                </table>
+                <t t-foreach="docs" t-as="d">
+                    <table class="table">
+                        <tr>
+                            <td>验收：
+                                <t t-esc="d.yanshou.name"/>
+                            </td>
+                            <td>仓管：
+                                <t t-esc="d.cangguan.name"/>
+                            </td>
+                            <td>入库：
+                                <t t-esc="d.ruku.name"/>
+                            </td>
+                        </tr>
+                    </table>
+                </t>
+            </div>
+        </tr>
+    </template>
+
+    <template id="report_goosecaigou">
+        <tr t-call="report.html_container">
+            <t t-lang="zh_CN"/>
+            <div class="page" style="font-size:15px;line-height:30px">
+                <div class="text-center">
+                    <h2>
+                        应付账款汇总表
+                    </h2>
+                    <table class="table table-condensed table-bordered">
+                        <tr>
+                            <th rowspan="2" class="text-center">客户编号</th>
+                            <th rowspan="2" class="text-center">客户名称</th>
+                            <th colspan="3" class="text-center">
+                                收货
+                            </th>
+                            <th colspan="4" class="text-center">
+                                开票
+                            </th>
+                            <th colspan="4" class="text-center">
+                                付款
+                            </th>
+                            <th rowspan="2" class="text-center">
+                                余额
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="text-center">数量</th>
+                            <th class="text-center">单价</th>
+                            <th class="text-center">金额</th>
+                            <th class="text-center">应开</th>
+                            <th class="text-center">实开13%</th>
+                            <th class="text-center">实开17%</th>
+                            <th class="text-center">未开</th>
+                            <th class="text-center">银行</th>
+                            <th class="text-center">卡</th>
+                            <th class="text-center">现金</th>
+                            <th class="text-center">合计</th>
+                        </tr>
+                        <t t-foreach="res" t-as="r">
+                            <tr>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['code']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['name']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['qty']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['amount']/r['qty']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['amount']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['amount']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['shikai13']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['shikai17']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['amount']-r['shikai13']-r['shikai17']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['yinhang']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['ka']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['xianjin']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['xianjin']+r['ka']+r['yinhang']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <t t-esc="r['amount']-r['xianjin']-r['ka']-r['yinhang']"/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+            </div>
+        </tr>
+    </template>
+
+    <template id="report_goosejx">
+        <tr t-call="report.html_container">
+            <t t-lang="zh_CN"/>
+            <div class="page" style="font-size:15px;line-height:30px">
+                <div class="text-center">
+                    <h2>
+                        绩效核算
+                    </h2>
+                    <table class="table table-condensed table-bordered">
+                        <tr>
+                            <td class="text-right">客户</td>
+                            <td class="text-right">业务员</td>
+                            <td class="text-right">合同</td>
+                            <td class="text-right">码单号</td>
+                            <td class="text-right">产品</td>
+                            <td class="text-right">发货数量</td>
+                            <td class="text-right">发货金额</td>
+                            <td class="text-right">90天内收款</td>
+                            <td class="text-right">90天外收款</td>
+                            <td class="text-right">回款天数</td>
+                        </tr>
+
+                        <t t-foreach="mes" t-as="m">
+                            <tr>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="m['client']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="m['yewu']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="m['contract']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="m['madan']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="m['product']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="m['qty']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="m['jine']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="m['in']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-esc="m['out']"/>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="text-right">
+                                        <t t-if="m['in_data']!='None'">
+                                            <t t-esc="m['in_data']"/>
+                                        </t>
+                                    </div>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+            </div>
+        </tr>
+    </template>
+</odoo>

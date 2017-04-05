@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="paperformat_goose" model="report.paperformat">
+            <field name="name">Goose A3 Paper</field>
+            <field name="default" eval="True"/>
+            <field name="format">A3</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">50</field>
+            <field name="margin_bottom">50</field>
+            <field name="margin_left">20</field>
+            <field name="margin_right">20</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">10</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <record id="paperformat_goose_A4" model="report.paperformat">
+            <field name="name">European A4 low margin</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">80</field>
+        </record>
+
+        <report
+                id="report_action_goose_order"
+                model="goose.order"
+                string="报表"
+                report_type="qweb-html"
+                name="goose.my_report"
+                file="goose.my_report"
+                paperformat="goose.paperformat_goose"
+        />
+        <report
+                id="report_action_goose_order_yewu"
+                model="goose.order"
+                string="报表"
+                report_type="qweb-html"
+                name="goose.my_report_yewu"
+                file="goose.my_report_yewu"
+                paperformat="goose.paperformat_goose"
+        />
+
+        <report
+                id="report_action_goose_order_wj"
+                model="goose.product.wuliao"
+                string="五金报表"
+                report_type="qweb-html"
+                name="goose.my_report_wj"
+                file="goose.my_report_wj"
+                paperformat="goose.paperformat_goose_A4"
+        />
+
+        <report
+                id="report_action_goose_order_yl"
+                model="goose.stock"
+                string="原料入库单"
+                report_type="qweb-pdf"
+                name="goose.my_report_yl"
+                file="goose.my_report_yl"
+        />
+
+        <report
+                id="report_goose_order_pay"
+                model="goose.order.pay"
+                string="采购收货（管理员）"
+                report_type="qweb-html"
+                name="goose.my_report_caigou"
+                file="goose.my_report_caigou"
+                paperformat="goose.paperformat_goose_A4"
+        />
+
+        <report
+                id="report_goose_order_pay_jl"
+                model="goose.order.pay.jl"
+                string="采购收货（经办员）"
+                report_type="qweb-html"
+                name="goose.my_report_caigou_jl"
+                file="goose.my_report_caigou_jl"
+                paperformat="goose.paperformat_goose_A4"
+        />
+
+        <report
+                id="report_goose_jx"
+                model="goose.jx"
+                string="绩效"
+                report_type="qweb-html"
+                name="goose.my_report_jx"
+                file="goose.my_report_jx"
+                paperformat="goose.paperformat_goose_A4"
+        />
+    </data>
+
+</odoo>

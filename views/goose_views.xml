@@ -1,0 +1,1119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <!--客户基本档-->
+
+    <record id="goose_client_form_view" model="ir.ui.view">
+        <field name="name">goose client form</field>
+        <field name="model">goose.client</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group colspan="2" string="客户基本档">
+                        <group>
+                            <field name="code"/>
+                            <field name="jiancheng"/>
+                            <field name="name"/>
+                            <field name="name_en"/>
+                            <field name="registered_capital"/>
+                            <field name="registered_date"/>
+                            <field name="registered_address"/>
+                            <field name="hand_phone"/>
+                            <field name="phone"/>
+                            <field name="fax"/>
+                            <field name="company_tax_number"/>
+                            <field name="payment_method"/>
+                            <field name="is_partner"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="faren"/>
+                            <field name="new_or_not"/>
+                            <field name="yewu"/>
+                            <field name="yewu_code"/>
+                            <field name="business_license"/>
+                            <field name="business_mode"/>
+                            <field name="zip_code"/>
+                            <field name="company_website"/>
+                            <field name="e_mail"/>
+                            <field name="company_account"/>
+                            <field name="bank_account"/>
+                            <field name="credit_quota"/>
+                        </group>
+                        <group colspan="2" string="联系人">
+                            <field name="contacts" mode="tree,kanban">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="duties"/>
+                                    <field name="department"/>
+                                    <field name="hand_phone"/>
+                                    <field name="phone"/>
+                                    <field name="other_way"/>
+                                    <field name="remark"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group colspan="2" string="送货地址">
+                            <field name="delivery_address"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_client_tree_view" model="ir.ui.view">
+        <field name="name">goose client tree view</field>
+        <field name="model">goose.client</field>
+        <field name="arch" type="xml">
+            <tree string="客户信息">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="yewu_code"/>
+                <field name="yewu"/>
+                <field name="contacts"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_client_action" model="ir.actions.act_window">
+        <field name="name">客户信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.client</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--供应商基本档-->
+
+    <record id="goose_supplier_form_view" model="ir.ui.view">
+        <field name="name">goose supplier form</field>
+        <field name="model">goose.supplier</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group colspan="2" string="供应商基本档">
+                        <group>
+                            <field name="code"/>
+                            <field name="jiancheng"/>
+                            <field name="name"/>
+                            <field name="name_en"/>
+                            <field name="registered_capital"/>
+                            <field name="registered_date"/>
+                            <field name="registered_address"/>
+                            <field name="hand_phone"/>
+                            <field name="phone"/>
+                            <field name="fax"/>
+
+                        </group>
+                        <group>
+                            <field name="faren"/>
+                            <field name="business_license"/>
+                            <field name="business_mode"/>
+                            <field name="zip_code"/>
+                            <field name="company_website"/>
+                            <field name="e_mail"/>
+                            <field name="company_account"/>
+                            <field name="bank_account"/>
+                            <field name="company_tax_number"/>
+                            <field name="yuer"/>
+                        </group>
+                        <group colspan="2" string="联系人">
+                            <field name="contacts" mode="tree,kanban">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="duties"/>
+                                    <field name="department"/>
+                                    <field name="hand_phone"/>
+                                    <field name="phone"/>
+                                    <field name="other_way"/>
+                                    <field name="remark"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_supplier_tree_view" model="ir.ui.view">
+        <field name="name">goose supplier tree view</field>
+        <field name="model">goose.supplier</field>
+        <field name="arch" type="xml">
+            <tree string="客户信息">
+                <field name="code"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_supplier_action" model="ir.actions.act_window">
+        <field name="name">供应商信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.supplier</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--产品基本档-->
+
+    <record id="goose_product_form_view" model="ir.ui.view">
+        <field name="name">goose product form</field>
+        <field name="model">goose.product</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group colspan="2" string="产品基本档">
+                        <field name="name" class="oe_inline"/>
+                        <field name="category" class="oe_inline"/>
+                        <field name="code" class="oe_inline"/>
+                        <field name="name_en" class="oe_inline"/>
+                        <field name="detail" class="oe_inline"/>
+                        <field name="product_uom" class="oe_inline"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_product_tree_view" model="ir.ui.view">
+        <field name="name">goose product tree view</field>
+        <field name="model">goose.product</field>
+        <field name="arch" type="xml">
+            <tree string="产品信息">
+                <field name="category"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="name_en"/>
+                <field name="name_en"/>
+                <field name="detail"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_product_action" model="ir.actions.act_window">
+        <field name="name">产品信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.product</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--物料基本档-->
+
+    <record id="goose_product_wuliao_form_view" model="ir.ui.view">
+        <field name="name">goose product wuliao form</field>
+        <field name="model">goose.product.wuliao</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group colspan="2" string="物料基本档">
+                        <field name="sort" class="oe_inline"/>
+                        <field name="category" class="oe_inline"/>
+                        <field name="code" class="oe_inline"/>
+                        <field name="name" class="oe_inline"/>
+                        <field name="format" class="oe_inline"/>
+                        <field name="detail" class="oe_inline"/>
+                        <field name="min_stock" class="oe_inline"/>
+                        <field name="stock" class="oe_inline"/>
+                        <field name="kuwei" class="oe_inline"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_product_wuliao_tree_view" model="ir.ui.view">
+        <field name="name">goose product wuliao tree view</field>
+        <field name="model">goose.product.wuliao</field>
+        <field name="arch" type="xml">
+            <tree string="物料信息">
+                <field name="sort"/>
+                <field name="category"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="format"/>
+                <field name="detail"/>
+                <field name="min_stock"/>
+                <field name="stock"/>
+                <field name="kuwei"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_product_wuliao_action" model="ir.actions.act_window">
+        <field name="name">物料信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.product.wuliao</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--原料基本档案-->
+
+    <record id="goose_product_yuanliao_form_view" model="ir.ui.view">
+        <field name="name">goose product yuanliao form</field>
+        <field name="model">goose.product.yuanliao</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group colspan="2" string="原料基本档">
+                        <field name="name" class="oe_inline"/>
+                        <field name="category" class="oe_inline"/>
+                        <field name="code" class="oe_inline"/>
+                        <field name="name_en" class="oe_inline"/>
+                        <field name="detail" class="oe_inline"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_product_yuanliao_tree_view" model="ir.ui.view">
+        <field name="name">goose product yuanliao tree view</field>
+        <field name="model">goose.product.yuanliao</field>
+        <field name="arch" type="xml">
+            <tree string="原料信息">
+                <field name="category"/>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="name_en"/>
+                <field name="detail"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_product_yuanliao_action" model="ir.actions.act_window">
+        <field name="name">原料信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.product.yuanliao</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--销售订单-->
+
+    <record id="goose_order_tree_view" model="ir.ui.view">
+        <field name="name">goose order tree view</field>
+        <field name="model">goose.order</field>
+        <field name="arch" type="xml">
+            <tree string="订单信息" editable="bottom" class="mytree">
+                <field name="order_date"/>
+                <field name="company" on_change="_onchange_client_id(client_id,company)"/>
+                <field name="liushui"/>
+                <field name="madan"/>
+                <field name="category" on_change="_onchange_category(category)"/>
+                <field name="product_id"/>
+                <field name="client_bh" on_change="_onchange_client_bh(client_bh)"/>
+                <field name="client_id" on_change="_onchange_client_id(client_id,company)"/>
+                <field name="yewu"/>
+                <field name="sale_contract"/>
+                <field name="bujiliang"/>
+                <field name="qty"/>
+                <field name="price"/>
+                <field name="amount"/>
+                <field name="kaipiao"/>
+                <field name="bukaipiao"/>
+                <field name="kaipiaoheji"/>
+                <field name="yinhang"/>
+                <field name="tiaozheng"/>
+                <field name="xianjin"/>
+                <field name="shoukuanheji"/>
+                <field name="shoukuankaipiao"/>
+                <field name="shoukuanbukaipiao"/>
+                <field name="shoukuankaipiaoheji"/>
+                <field name="zhangmian"/>
+                <field name="yuerbukaipiao"/>
+                <field name="weikaipiao"/>
+                <field name="yuerheji"/>
+                <field name="beizhu"/>
+                <field name="client_zm" invisible="1"/>
+                <field name="client_bkp" invisible="1"/>
+                <field name="client_wkp" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_order_action" model="ir.actions.act_window">
+        <field name="name">订单信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.order</field>
+        <!--<field name="view_type">form</field>-->
+        <field name="view_mode">tree</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="view_goose_order_filter" model="ir.ui.view">
+        <field name="name">goose.order.search</field>
+        <field name="model">goose.order</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="client_bh" string="客戶编号" filter_domain="[('client_bh','ilike',self)]"/>
+                <field name="client_id" string="客戶名称" filter_domain="[('client_id','ilike',self)]"/>
+                <field name="liushui"/>
+                <field name="madan"/>
+                <filter string="计量" name="bujiliang" domain="[('bujiliang','=',False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="客户" domain="[('bujiliang','=','False)]" context="{'group_by':'client_id'}"/>
+                    <filter string="码单" name="order_date" context="{'group_by':'madan'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--销售订单业务-->
+
+    <record id="goose_order_tree_view_yewu" model="ir.ui.view">
+        <field name="name">goose order tree view</field>
+        <field name="model">goose.order.yewu</field>
+        <field name="arch" type="xml">
+            <tree string="订单信息" editable="bottom" class="mytree">
+                <field name="order_date"/>
+                <field name="company" on_change="_onchange_client_id(client_id,company)"/>
+                <field name="liushui"/>
+                <field name="madan"/>
+                <field name="category" on_change="_onchange_category(category)"/>
+                <field name="product_id"/>
+                <field name="client_bh" on_change="_onchange_client_bh(client_bh)"/>
+                <field name="client_id" on_change="_onchange_client_id(client_id,company)"/>
+                <field name="yewu"/>
+                <field name="sale_contract"/>
+                <field name="bujiliang"/>
+                <field name="qty"/>
+                <field name="price"/>
+                <field name="amount"/>
+                <field name="kaipiao"/>
+                <field name="bukaipiao"/>
+                <field name="kaipiaoheji"/>
+                <field name="yinhang"/>
+                <field name="tiaozheng"/>
+                <field name="xianjin"/>
+                <field name="shoukuanheji"/>
+                <field name="shoukuankaipiao"/>
+                <field name="shoukuanbukaipiao"/>
+                <field name="shoukuankaipiaoheji"/>
+                <field name="zhangmian"/>
+                <field name="yuerbukaipiao"/>
+                <field name="weikaipiao"/>
+                <field name="yuerheji"/>
+                <field name="beizhu"/>
+                <field name="client_zm" invisible="1"/>
+                <field name="client_bkp" invisible="1"/>
+                <field name="client_wkp" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_order_action_yewu" model="ir.actions.act_window">
+        <field name="name">订单信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.order.yewu</field>
+        <!--<field name="view_type">form</field>-->
+        <field name="view_mode">tree</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="view_goose_order_filter_yewu" model="ir.ui.view">
+        <field name="name">goose.order.search</field>
+        <field name="model">goose.order.yewu</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="client_bh" string="客戶编号" filter_domain="[('client_bh','ilike',self)]"/>
+                <field name="client_id" string="客戶名称" filter_domain="[('client_id','ilike',self)]"/>
+                <field name="liushui"/>
+                <field name="madan"/>
+                <filter string="计量" name="bujiliang" domain="[('bujiliang','=',False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="客户" domain="[('bujiliang','=','False)]" context="{'group_by':'client_id'}"/>
+                    <filter string="月份" name="order_date" context="{'group_by':'month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--采购订单-->
+
+    <record id="goose_order_pay_tree_view" model="ir.ui.view">
+        <field name="name">goose order pay tree view</field>
+        <field name="model">goose.order.pay</field>
+        <field name="arch" type="xml">
+            <tree string="订单信息" editable="bottom" class="mytree2">
+                <field name="order_date"/>
+                <field name="product_id"/>
+                <field name="guige"/>
+                <field name="client_bh" on_change="_onchange_client_bh(client_bh)"/>
+                <field name="client_id" on_change="_onchange_client_id(client_id)"/>
+                <field name="qty"/>
+                <field name="price"/>
+                <field name="amount"/>
+                <field name="yingkai"/>
+                <field name="shikai13"/>
+                <field name="shikai17"/>
+                <field name="weikai"/>
+                <field name="yinhang"/>
+                <field name="ka"/>
+                <field name="xianjin"/>
+                <field name="heji"/>
+                <field name="yuer"/>
+                <field name="beizhu"/>
+                <field name="yuer2" invisible="1"/>
+                <field name="weikai2" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_order_pay_action" model="ir.actions.act_window">
+        <field name="name">订单信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.order.pay</field>
+        <!--<field name="view_type">form</field>-->
+        <field name="view_mode">tree</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="view_goose_order_pay_filter" model="ir.ui.view">
+        <field name="name">goose.order.pay.search</field>
+        <field name="model">goose.order.pay</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="client_bh" string="客戶编号" filter_domain="[('client_bh','ilike',self)]"/>
+                <field name="client_id" string="客戶名称" filter_domain="[('client_id','ilike',self)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="供应商" context="{'group_by':'client_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--采购订单经理-->
+
+    <record id="goose_order_pay_jl_tree_view" model="ir.ui.view">
+        <field name="name">goose order pay tree view</field>
+        <field name="model">goose.order.pay.jl</field>
+        <field name="arch" type="xml">
+            <tree string="订单信息" editable="bottom" class="mytree">
+                <field name="order_date"/>
+                <field name="product_id"/>
+                <field name="guige"/>
+                <field name="client_bh" on_change="_onchange_client_bh(client_bh)"/>
+                <field name="client_id" on_change="_onchange_client_id(client_id)"/>
+                <field name="qty"/>
+                <field name="price"/>
+                <field name="amount"/>
+                <field name="yingkai"/>
+                <field name="shikai13"/>
+                <field name="shikai17"/>
+                <field name="weikai"/>
+                <field name="yinhang"/>
+                <field name="ka"/>
+                <field name="xianjin"/>
+                <field name="heji"/>
+                <field name="yuer"/>
+                <field name="beizhu"/>
+                <field name="yuer2" invisible="1"/>
+                <field name="weikai2" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_order_pay_jl_action" model="ir.actions.act_window">
+        <field name="name">订单信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.order.pay.jl</field>
+        <!--<field name="view_type">form</field>-->
+        <field name="view_mode">tree</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="view_goose_order_pay_jl_filter" model="ir.ui.view">
+        <field name="name">goose.order.pay.search</field>
+        <field name="model">goose.order.pay.jl</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="client_bh" string="客戶编号" filter_domain="[('client_bh','ilike',self)]"/>
+                <field name="client_id" string="客戶名称" filter_domain="[('client_id','ilike',self)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="供应商" context="{'group_by':'client_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--样品订单-->
+
+    <record id="goose_sample_order_form_view" model="ir.ui.view">
+        <field name="name">goose sample order form</field>
+        <field name="model">goose.sample.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="client_bh" on_change="_onchange_client_bh(client_bh)"/>
+                            <field name="client_jc" on_change="_onchange_client_jc(client_jc)"/>
+                            <field name="client_id" on_change="_onchange_client_id(client_id)"/>
+                            <field name="product_id"/>
+                        </group>
+                        <group>
+                            <field name="order_date"/>
+                            <field name="yewu"/>
+                            <field name="yewu_code"/>
+                            <field name="sale_way"/>
+                            <field name="product_qty"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_sample_order_tree_view" model="ir.ui.view">
+        <field name="name">goose sample order tree</field>
+        <field name="model">goose.sample.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="client_bh"/>
+                <field name="client_jc"/>
+                <field name="client_id"/>
+                <field name="order_date"/>
+                <field name="yewu"/>
+                <field name="yewu_code"/>
+                <field name="sale_way"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_sample_order_action" model="ir.actions.act_window">
+        <field name="name">样品订单</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.sample.order</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--原料入库-->
+
+    <record id="goose_stock_form_view" model="ir.ui.view">
+        <field name="name">goose stock form</field>
+        <field name="model">goose.stock</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="ruku"/>
+                            <field name="ruku_bh" on_change="_onchange_ruku_bh(ruku_bh)"/>
+                            <field name="ruku_date"/>
+                            <field name="supplier_id"/>
+                            <field name="supplier_bh" on_change="_onchange_supplier_bh(supplier_bh)"/>
+                            <field name="send_code"/>
+                            <field name="ylcd"/>
+                            <field name="hydh"/>
+                            <field name="cangguan"/>
+                            <field name="yanshou"/>
+                        </group>
+                        <group>
+                            <field name="price"/>
+                            <field name="price_total"/>
+                            <field name="ylbh" on_change="_onchange_ylbh(ylbh)"/>
+                            <field name="ylmc"/>
+                            <field name="ylpc"/>
+                            <field name="baoshu"/>
+                            <field name="pizhongliang"/>
+                            <field name="pizhong"/>
+                            <field name="sunhao"/>
+                            <field name="jingzhong"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_stock_tree_view" model="ir.ui.view">
+        <field name="name">goose stock tree</field>
+        <field name="model">goose.stock</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="ruku_bh"/>
+                <field name="ruku"/>
+                <field name="ruku_date"/>
+                <field name="supplier_bh"/>
+                <field name="supplier_id"/>
+                <field name="hydh"/>
+                <field name="ylpc"/>
+                <field name="baoshu"/>
+                <field name="price"/>
+                <field name="price_total"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_stock_action" model="ir.actions.act_window">
+        <field name="name">原料入库</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.stock</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--物料出入库-->
+
+    <record id="goose_wjstock_form_view" model="ir.ui.view">
+        <field name="name">goose wjstock form</field>
+        <field name="model">goose.wjstock</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="ruku"/>
+                            <field name="department"/>
+                            <!--<field name="wlbh" on_change="_onchange_wlbh(wlbh)"/>-->
+                            <!--<field name="wlmc"/>-->
+                            <!--<field name="kucun"/>-->
+                        </group>
+                        <group>
+                            <field name="ruku_date"/>
+                            <field name="ruku_bh" on_change="_onchange_ruku_bh(ruku_bh)"/>
+                            <field name="churu"/>
+                        </group>
+                        <field name="wl_line" nolabel="1" mode="tree,kanban">
+                            <tree editable="bottom">
+                                <field name="name" options="{'no_create':True}"/>
+                                <field name="kuwei" options="{'no_create':True}"/>
+                                <field name="qty"/>
+                            </tree>
+                        </field>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_wjstock_tree_view" model="ir.ui.view">
+        <field name="name">goose wjstock tree</field>
+        <field name="model">goose.wjstock</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="department"/>
+                <!--<field name="wlbh"/>-->
+                <!--<field name="wlmc"/>-->
+                <field name="ruku_date"/>
+                <!--<field name="kucun"/>-->
+                <field name="churu"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_wjstock_action" model="ir.actions.act_window">
+        <field name="name">五金出入库</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.wjstock</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--库位-->
+
+    <record id="goose_wjkuwei_form_view" model="ir.ui.view">
+        <field name="name">goose wjstock form</field>
+        <field name="model">goose.wjstock</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_wjkuwei_tree_view" model="ir.ui.view">
+        <field name="name">goose wjstock tree</field>
+        <field name="model">goose.wjstock</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_wjkuwei_action" model="ir.actions.act_window">
+        <field name="name">五金库位</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.wjkuwei</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--仓管-->
+
+    <record id="goose_cangguan_form_view" model="ir.ui.view">
+        <field name="name">goose cangguan form</field>
+        <field name="model">goose.cangguan</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_cangguan_tree_view" model="ir.ui.view">
+        <field name="name">goose cangguan tree</field>
+        <field name="model">goose.cangguan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_cangguan_action" model="ir.actions.act_window">
+        <field name="name">仓管</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.cangguan</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--绩效考核-->
+
+    <!--<record id="goose_jxkh_form_view" model="ir.ui.view">-->
+    <!--<field name="name">goose jxkh form</field>-->
+    <!--<field name="model">goose.jxkh</field>-->
+    <!--<field name="arch" type="xml">-->
+    <!--<form>-->
+    <!--<sheet>-->
+    <!--<field name="fhdh"/>-->
+    <!--<field name="date"/>-->
+    <!--<field name="contract"/>-->
+    <!--<field name="client"/>-->
+    <!--<field name="client_bh"/>-->
+    <!--<field name="yewu"/>-->
+    <!--<field name="yewu_code"/>-->
+    <!--<field name="fahuo"/>-->
+    <!--<field name="shoukuan"/>-->
+    <!--</sheet>-->
+
+    <!--<div class="oe_chatter">-->
+    <!--<field name="message_follower_ids" widget="mail_followers"-->
+    <!--help="Follow this salesteam to automatically track the events associated to users of this team."/>-->
+    <!--<field name="message_ids" widget="mail_thread"/>-->
+    <!--</div>-->
+    <!--</form>-->
+    <!--</field>-->
+    <!--</record>-->
+
+    <record id="goose_jxkh_tree_view" model="ir.ui.view">
+        <field name="name">goose jxkh tree</field>
+        <field name="model">goose.jxkh</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="fhdh"/>
+                <field name="date"/>
+                <field name="contract"/>
+                <field name="client"/>
+                <field name="client_bh"/>
+                <field name="yewu"/>
+                <field name="yewu_code"/>
+                <field name="fahuo"/>
+                <field name="shoukuan"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_jxkh_action" model="ir.actions.act_window">
+        <field name="name">绩效考核</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.jxkh</field>
+        <field name="view_mode">tree</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="view_jxkh_filter" model="ir.ui.view">
+        <field name="name">goose.jxkh.search</field>
+        <field name="model">goose.jxkh</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="client_bh" string="客戶编号" filter_domain="[('client_bh','ilike',self)]"/>
+                <field name="client" string="客戶名称" filter_domain="[('client','ilike',self)]"/>
+                <field name="fhdh" string="码单" filter_domain="[('fhdh','ilike',self)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="合同" context="{'group_by':'contract'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!--Email-->
+
+    <record id="goose_email_form_view" model="ir.ui.view">
+        <field name="name">goose email form</field>
+        <field name="model">goose.email</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="yewu"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"
+                           help="Follow this salesteam to automatically track the events associated to users of this team."/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_email_tree_view" model="ir.ui.view">
+        <field name="name">goose email tree</field>
+        <field name="model">goose.email</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="yewu"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_email_action" model="ir.actions.act_window">
+        <field name="name">Email</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.email</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+    <!--验收-->
+
+    <record id="goose_yanshou_form_view" model="ir.ui.view">
+        <field name="name">goose yanshou form</field>
+        <field name="model">goose.yanshou</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_yanshou_tree_view" model="ir.ui.view">
+        <field name="name">goose yanshou tree</field>
+        <field name="model">goose.yanshou</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_yanshou_action" model="ir.actions.act_window">
+        <field name="name">验收</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.yanshou</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--物料档案的产品类别-->
+
+    <record id="goose_wjleibie_form_view" model="ir.ui.view">
+        <field name="name">goose category form</field>
+        <field name="model">goose.category.wuliao</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_wjleibie_tree_view" model="ir.ui.view">
+        <field name="name">goose category tree</field>
+        <field name="model">goose.category.wuliao</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_wjleibie_action" model="ir.actions.act_window">
+        <field name="name">物料类别</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.category.wuliao</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--化验单-->
+
+    <record id="goose_huayan_form_view" model="ir.ui.view">
+        <field name="name">goose huayan form</field>
+        <field name="model">goose.huayan</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="pici" on_change="_onchange_pici(pici)"/>
+                            <field name="supplier_id"/>
+                            <field name="supplier_bh" on_change="_onchange_supplier_bh(supplier_bh)"/>
+                            <field name="ylmc"/>
+                            <field name="baoshu"/>
+                            <field name="pizhongliang"/>
+                        </group>
+                        <group>
+                            <field name="bianhao"/>
+                            <field name="hyry"/>
+                            <field name="hy_code"/>
+                            <field name="hyry1"/>
+                            <field name="hy_code1"/>
+                            <field name="hyry2"/>
+                            <field name="hy_code2"/>
+                            <field name="hyry3"/>
+                            <field name="hy_code3"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="goose_huayan_tree_view" model="ir.ui.view">
+        <field name="name">goose huayan tree</field>
+        <field name="model">goose.huayan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="pici"/>
+                <field name="supplier_bh"/>
+                <field name="supplier_id"/>
+                <field name="ylmc"/>
+                <field name="baoshu"/>
+                <field name="pizhongliang"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="goose_huayan_action" model="ir.actions.act_window">
+        <field name="name">样品订单</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.huayan</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <!--设置-->
+
+    <record id="goose_product_setting_action" model="ir.actions.act_window">
+        <field name="name">供应商信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.category</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="goose_product_wuliao_setting_action" model="ir.actions.act_window">
+        <field name="name">供应商信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.format</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <record id="goose_product_setting_action" model="ir.actions.act_window">
+        <field name="name">供应商信息</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">goose.category</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{}</field>
+    </record>
+
+    <menuitem id="goose_menu" name="野鹅"
+              groups="group_goose_user,group_goose_manager,group_goose_kuaiji,group_goose_wjck,group_goose_ylck"/>
+    <menuitem id="goose_base_menu" name="基本信息档" parent="goose_menu"
+              groups="group_goose_user,group_goose_manager,group_goose_kuaiji"/>
+    <menuitem id="goose_client_menu" name="客户档案" action="goose_client_action" parent="goose_base_menu"/>
+    <menuitem id="goose_supplier_menu" name="供应商档案" action="goose_supplier_action" parent="goose_base_menu"/>
+    <menuitem id="goose_product_menu" name="产品名称档案" action="goose_product_action" parent="goose_base_menu"/>
+    <menuitem id="goose_product_setting_menu" name="产品名称类别" parent="goose_base_menu"
+              action="goose_product_setting_action"/>
+
+    <menuitem id="goose_sale_menu" name="销售管理" parent="goose_menu"
+              groups="group_goose_user,group_goose_manager,group_goose_kuaiji"/>
+    <menuitem id="goose_order_menu" name="销售发货（管理）" parent="goose_sale_menu" action="goose_order_action"
+              groups="group_goose_kuaiji"/>
+    <menuitem id="goose_order_menu_yewu" name="销售发货（业务员）" parent="goose_sale_menu" action="goose_order_action_yewu"/>
+
+    <menuitem id="goose_sample_order_menu" name="样品订单" parent="goose_sale_menu" action="goose_sample_order_action"
+              sequence="3"/>
+
+
+    <menuitem id="goose_caigo_menu" name="采购管理" parent="goose_menu" groups="group_goose_kuaiji,group_goose_ylck"/>
+
+    <menuitem id="goose_product_yuanliao_menu" name="原料档案" action="goose_product_yuanliao_action"
+              parent="goose_caigo_menu"/>
+    <menuitem id="goose_stock_menu" name="原料入库" parent="goose_caigo_menu" action="goose_stock_action"/>
+    <menuitem id="goose_huayan_menu" name="原料化验" parent="goose_caigo_menu" action="goose_huayan_action"/>
+    <menuitem id="goose_cangguan_menu" name="仓管员" parent="goose_caigo_menu" action="goose_cangguan_action"/>
+    <menuitem id="goose_yanshou_menu" name="验收员" parent="goose_caigo_menu" action="goose_yanshou_action"/>
+    <menuitem id="goose_order_pay_menu" name="采购收货（管理员）" parent="goose_caigo_menu" action="goose_order_pay_action"/>
+    <menuitem id="goose_order_pay_jl_menu" name="采购收货（经办员）" parent="goose_caigo_menu"
+              action="goose_order_pay_jl_action"/>
+
+    <menuitem id="goose_wujin_menu" name="五金仓库" parent="goose_menu" groups="group_goose_kuaiji,group_goose_wjck"/>
+    <menuitem id="goose_product_wuliao_setting_menu" name="物料规格" parent="goose_wujin_menu"
+              action="goose_product_wuliao_setting_action"/>
+    <menuitem id="goose_wjstock_menu" name="物料出入库" parent="goose_wujin_menu" action="goose_wjstock_action"/>
+    <menuitem id="goose_wjkuwei_menu" name="物料库位" parent="goose_wujin_menu" action="goose_wjkuwei_action"/>
+    <menuitem id="goose_wjleibie_menu" name="物料类别" parent="goose_wujin_menu" action="goose_wjleibie_action"/>
+    <menuitem id="goose_product_wuliao_menu" name="物料档案" action="goose_product_wuliao_action"
+              parent="goose_wujin_menu"/>
+
+    <menuitem id="goose_jxkh" name="回款记录" parent="goose_sale_menu" action="goose_jxkh_action"/>
+    <menuitem id="goose_jxkh_email" name="Email" parent="goose_sale_menu" action="goose_email_action"/>
+</odoo>

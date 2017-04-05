@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_salecontract">
+        <t t-call="report.html_container">
+            <t t-lang="zh_CN"/>
+            <t t-foreach="docs" t-as="doc">
+                <div class="page" style="font-size:15px;line-height:30px">
+                    <h1 class="text-center">购 销 合 同</h1>
+                    <div class="container">
+                        <p class="col-xs-2">供方：</p>
+                        <span class="col-xs-6" t-field="doc.company_id.name"/>
+                        <p class="col-xs-2">合同编号：</p>
+                        <span class="col-xs-2" t-field="doc.name"/>
+                    </div>
+                    <div class="container">
+                        <p class="col-xs-2">需方：</p>
+                        <span class="col-xs-6" t-field="doc.partner_id.name"/>
+                        <p class="col-xs-4"></p>
+                    </div>
+                    <div class="container">
+                        <t t-if="doc.danbao.name">
+                            <p class="col-xs-2">担 保 方：</p>
+                            <span class="col-xs-6" t-field="doc.danbao.name"/>
+                        </t>
+                        <t t-else="!doc.danbao.name">
+                            <p class="col-xs-8">担 保 方：</p>
+                        </t>
+
+                        <p class="col-xs-2">签订日期：</p>
+                        <span class="col-xs-2" t-field="doc.contract_date"/>
+                    </div>
+                    <div>
+                        一、产品名称、型号、厂家、数量、金额、供货时间及数量:
+                    </div>
+                    <table class="table table-condensed table-bordered">
+                        <tr class="text-center">
+                            <th>
+                                品名规格
+                            </th>
+                            <th>
+                                标准
+                            </th>
+                            <th>
+                                计量单位
+                            </th>
+                            <th>
+                                数量
+                            </th>
+                            <th>
+                                单价
+                            </th>
+                            <th>
+                                总金额
+                            </th>
+                            <th>
+                                交提货时间及数量
+                            </th>
+                        </tr>
+                        <t t-foreach="doc.sale_contract_line" t-as="d">
+                            <tr>
+                                <td>
+                                    <span t-field="d.product_id.name"/>
+                                </td>
+                                <td>
+                                    <span t-field="d.standard"/>
+                                </td>
+                                <td>
+                                    <span t-field="d.product_uom"/>
+                                </td>
+                                <td>
+                                    <span t-field="d.product_uom_qty"/>
+                                </td>
+                                <td>
+                                    <span t-field="d.price_unit"/>
+                                </td>
+                                <td>
+                                    <span t-field="d.price_total"/>
+                                </td>
+                                <td>
+                                    <span t-field="d.details"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+                    <div class="container">
+                        <p class="col-xs-3">合计人民币金额（大写）：</p>
+                        <span class='col-xs-5' t-field="doc.big_amount_total"/>
+                        <p class="col-xs-2">合计：</p>
+                        <span class='col-xs-2' t-raw="doc.amount_total"/>
+                    </div>
+                    <div>
+                        二、质量要求技术标准:按
+                        <span t-field="doc.standard_value"/>
+                        标准生产。
+                    </div>
+                    <div>
+                        三、交（提）货地点、方式：
+                        <span t-field="doc.rule3"/>
+                    </div>
+                    <div>
+                        四、运输方式及到达站港和费用负担：
+                        <span t-field="doc.rule4"/>
+                    </div>
+                    <div>
+                        五、包装标准、包装物的供应与回收：
+                        <span t-field="doc.rule5"/>
+                    </div>
+                    <div>
+                        六、质量验收标准及方法：
+                        <span t-field="doc.rule6"/>
+                    </div>
+                    <div>
+                        七、质量提出异议期限：
+                        <span t-field="doc.rule7"/>
+                    </div>
+                    <div>
+                        八、结算方式及期限：
+                        <span t-field="doc.rule8"/>
+                    </div>
+                    <div>
+                        九、违约责任：
+                        <span t-field="doc.rule9"/>
+                    </div>
+                    <div>
+                        十、解决合同纠纷方法：
+                        <span t-field="doc.rule10"/>
+                    </div>
+                    <div>
+                        十一、其他约定事项：
+                        <span t-field="doc.rule11"/>
+                    </div>
+                    <t t-if="doc.rule12">
+                        <div>
+                            <span t-field="doc.rule12"/>
+                        </div>
+                    </t>
+                    <br></br>
+                    <br></br>
+                    <table class="table table-condensed table-bordered">
+                        <tr>
+                            <td>
+                                <div class="text-center">
+                                    供方
+                                </div>
+                                <div>
+                                    单位名称（章）：
+                                    <span t-field="doc.company_id.name"/>
+                                </div>
+                                <div>
+                                    地址：
+                                    <span t-field="doc.company_id.registered_address"/>
+                                </div>
+                                <div>
+                                    法定代理人：
+                                    <span t-field="doc.company_id.faren"/>
+                                </div>
+                                <div>
+                                    电话：
+                                    <span t-field="doc.company_id.phone"/>
+                                </div>
+                                <div>
+                                    传真：
+                                    <span t-field="doc.company_id.fax"/>
+                                </div>
+                                <div>
+                                    开户银行：
+                                    <span t-field="doc.company_id.bank_account"/>
+                                </div>
+                                <div>
+                                    账号：
+                                    <span t-field="doc.company_id.company_account"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-center">
+                                    需方
+                                </div>
+                                <div>
+                                    单位名称（章）：
+                                    <span t-field="doc.partner_id.name"/>
+                                </div>
+                                <div>
+                                    地址：
+                                    <span t-field="doc.partner_id.delivery_address"/>
+                                </div>
+                                <div>
+                                    法定代理人：
+                                    <span t-field="doc.partner_id.faren"/>
+                                </div>
+                                <div>
+                                    电话：
+                                    <span t-field="doc.partner_id.phone"/>
+                                </div>
+                                <div>
+                                    传真：
+                                    <span t-field="doc.partner_id.fax"/>
+                                </div>
+                                <div>
+                                    开户银行：
+                                    <span t-field="doc.company_id.bank_account"/>
+                                </div>
+                                <div>
+                                    账号：
+                                    <span t-field="doc.company_id.company_account"/>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-center">
+                                    担保人
+                                </div>
+                                <div>
+                                    担保人：
+                                    <span t-field="doc.danbao.name"/>
+                                </div>
+                                <div>
+                                    地址：
+                                    <span t-field="doc.danbao.address"/>
+                                </div>
+                                <div>
+                                    身份证号:
+                                    <span t-field="doc.danbao.identify"/>
+                                </div>
+                                <div>
+                                    电话：
+                                    <span t-field="doc.danbao.phone"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_saleproduce">
+        <t t-call="report.html_container">
+            <t t-lang="zh_CN"/>
+            <t t-foreach="docs" t-as="doc">
+                <div class="page" style="font-size:15px;line-height:30px">
+                    <h1 class="text-center">
+                        生产任务单
+                    </h1>
+                    <div>
+                        单号：
+                        <span t-field="doc.name"/>
+                    </div>
+                    <table class="table table-condensed table-bordered">
+                        <tr>
+                            <th>产品</th>
+                            <th>数量</th>
+                            <th>单位</th>
+                        </tr>
+
+                        <t t-foreach="doc.order_line" t-as="l">
+                            <tr>
+                                <td>
+                                    <span t-field="l.product_id.name"/>
+                                </td>
+                                <td>
+                                    <span t-field="l.product_uom_qty"/>
+                                </td>
+                                <td>
+                                    <span t-field="l.product_uom"/>
+                                </td>
+                            </tr>
+                        </t>
+
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

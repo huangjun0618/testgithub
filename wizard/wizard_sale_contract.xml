@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="wizard_sale_contract_form" model="ir.ui.view">
+        <field name="name">Audit Forms</field>
+        <field name="model">sale.contract.wizard</field>
+        <field name="arch" type="xml">
+            <form string="窗口" version="7.0">
+                <group>
+                    <field name="text" placeholder='填写审批意见'/>
+                </group>
+                <footer>
+                    <button name="but_yes" string="同意" type="object" class="oe_highlight"/>
+                    or
+                    <button name="but_no" string="不同意" type="object" class="oe_highlight"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_sale_contract" model="ir.actions.act_window">
+        <field name="name">审批窗口</field>
+        <field name="res_model">sale.contract.wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_sale_contract_form"/>
+        <field name="context">{}</field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

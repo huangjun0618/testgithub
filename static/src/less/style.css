@@ -1,0 +1,9 @@
+.o_main_content .o_content .o_view_manager_content .mytree {
+  width: 3270px;
+}
+.o_main_content .o_content .o_view_manager_content .mytree2 {
+  width: 2000px;
+}
+body.o_in_iframe {
+  width: 150%;
+}
